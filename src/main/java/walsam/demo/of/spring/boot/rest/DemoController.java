@@ -10,15 +10,12 @@ import walsam.demo.of.spring.boot.common.Coach;
 public class DemoController {
 
     private Coach myCoach;
-    private Coach anotherCoach;
 
     @Autowired
     public DemoController(
-            @Qualifier("tennisCoach") Coach theCoach,
-            @Qualifier("tennisCoach") Coach theAnotherCoach
+            @Qualifier("tennisCoach") Coach theCoach
     ){
         myCoach = theCoach;
-        anotherCoach = theAnotherCoach;
     }
 
     /*@Autowired
@@ -29,10 +26,5 @@ public class DemoController {
     @GetMapping("/dailyworkout")
     public String getDailyWorkout(){
         return myCoach.getDailyWorkout();
-    }
-
-    @GetMapping("/check")
-    public String check(){
-        return "Comparing beans : myCoach == anotherCoach, " + (myCoach == anotherCoach);
     }
 }
